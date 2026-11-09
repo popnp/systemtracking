@@ -1,0 +1,491 @@
+%%{init: {"theme":"base","themeCSS":".edgeLabel{font-size:10.5px} .edgeLabel p,.edgeLabel span,.labelBkg{color:#5B6168 !important;background-color:#FFFFFF !important} .cluster-label p,.cluster-label span{font-weight:700;font-size:13px;color:#3A3F45} .nodeLabel p{line-height:1.45}","flowchart":{"curve":"basis","nodeSpacing":24,"rankSpacing":44,"padding":10,"htmlLabels":true},"themeVariables":{"fontFamily":"IBM Plex Sans KR, Noto Sans KR, sans-serif","fontSize":"12px","lineColor":"#5B6168","primaryTextColor":"#16181A","edgeLabelBackground":"#FFFFFF","clusterBkg":"#FCFCFB","clusterBorder":"#D5D9D6"}}}%%
+flowchart TB
+%% 판 5 · 이해관계 컬러 — 테두리 색 = 이해관계, 테두리 패턴·바탕 = 검증 상태, 선 형태 = 관계 종류
+%% 파랑 자금·금융 / 보라 소유·자산 / 황토 공공 권한·제도 / 초록 생산·사업 수익 / 붉은 비용·위험 / 청록 주거·사회 / 회색 통계 범위·수치 없음
+%% 주체 노드: 테두리 = 첫째 이해관계, 바탕 = 둘째 이해관계, 〔 〕 = 전체 이해관계
+
+
+H["아파트 한 채<br/>매매 · 전세 · 월세가 붙는 곳"]
+
+subgraph ACTORS["14 · 주체 — 가치 / 위험 / 비용 / 권한 / 다음 공급"]
+AO["기존 소유자 · 조합원<br/>〔자산 · 권한 · 비용〕<br/>가치: 신축 입주권 · 시세 상승분은 미실현<br/>위험: [둔촌] 사업 지연<br/>비용: [둔촌] 분담금 추산 1.28억 → 1.8억<br/>권한: 총회 의결 · [둔촌] 찬성 94.9%<br/>다음 공급: 다음 재건축 발의 (가설)"]
+AT["기존 세입자<br/>〔주거 · 위험〕<br/>가치: 자료 미확인<br/>위험: 관리처분 후 이주 · [둔촌] 규모 확인 필요<br/>비용: 이주 비용 · 주거이전비 법정 근거 없음 (2019 보도, 이후 개정 확인 필요)<br/>권한: 권한 범위 확인 필요<br/>다음 공급: 자료 미확인"]
+AC["시공단<br/>〔사업 수익 · 위험 · 권한〕<br/>가치: [둔촌] 공사비 2.6조 → 4.37조<br/>위험: [둔촌] 공정률 52%에서 중단 (2022.4)<br/>비용: 중단 기간 비용 · 자료 미확인<br/>권한: 공사 중단 · 증액 협상<br/>다음 공급: 수주가 착공을 좌우 (가설)<br/>[서울] 정비사업 = 신규 아파트의 78~91%"]
+AF["PF 대주단 · 은행<br/>〔자금 · 위험 · 권한〕<br/>가치: 이자 · [국내 은행] 이자이익 비중 89%<br/>위험: 차환 · 부실 · 자료 미확인<br/>비용: 자료 미확인<br/>권한: 대출 실행 · 연장 · [둔촌] 7,000억 → 9,000억<br/>다음 공급: [전국] 부동산·건설 대출 비중 29.4%"]
+AD["시행사 · 개발사업자<br/>〔사업 수익 · 위험 · 권한〕<br/>정비사업에서는 조합이 사업시행자<br/>가치: 개발이익 · 자료 미확인<br/>위험: PF 차환 · 미분양<br/>비용: 토지 매입 · 자기자본 · 자료 미확인<br/>권한: 사업계획 · 분양 · 권한 범위 확인 필요<br/>다음 공급: 신규 사업 착수"]
+AB["일반분양 수분양자<br/>〔자산 · 주거 · 비용〕<br/>가치: 신축 거주 · 시세차익 가능성 (미실현)<br/>위험: 실거주 의무 · 적용 조건 확인 필요<br/>비용: [둔촌] 3.3㎡당 3,829만<br/>권한: 청약 · 계약 여부<br/>다음 공급: 다음 주기의 조합원 (가설)"]
+AR["전세 임차인<br/>〔주거 · 위험 · 자금〕<br/>가치: 주거 서비스<br/>위험: [전국 · 전 주택 유형] 피해 결정 40,278건 (2026.7)<br/>비용: 보증금 · 총액 자료 미확인<br/>권한: 계약 체결 여부<br/>다음 공급: 자료 미확인"]
+AL["준공 후 소유자 · 임대인<br/>〔자산 · 자금〕<br/>가치: 보증금 · [둔촌] 임대 2,894건<br/>위험: 자료 미확인<br/>비용: [전국 · 주택분 추계] 보유세 약 7.6조<br/>권한: 매도 · 임대<br/>다음 공급: 자료 미확인"]
+AG["국가<br/>〔공공 권한 · 비용〕<br/>가치: [전국] 종부세 1.50조 (2026 전망)<br/>위험: 자료 미확인<br/>비용: [전국] 피해주택 LH 매입 10,256가구 · 재원 구성 확인 필요<br/>권한: 법 · 규제 · 세제 기준<br/>다음 공급: 정비 규제 · 세제"]
+AM["지자체<br/>〔공공 권한〕<br/>가치: 지방세 · 기부채납 · 부동산교부세<br/>위험: [2020] 교부세가 지방세수보다 많은 기초단체 7곳<br/>비용: 자료 미확인<br/>권한: 정비구역 지정·해제 · [서울 2012~2020] 683곳 중 389곳 해제<br/>다음 공급: 다음 구역 지정"]
+AP["부모<br/>〔자산 · 자금〕<br/>가치: 자녀의 주택 소유 가능성 4.25배 (연구 1건)<br/>위험: 자료 미확인<br/>비용: 증여 · [전국] 20대 매수 신고 48.4% 기재<br/>권한: 증여 결정<br/>다음 공급: [서울] 취득자금 중 증여·상속 6.45%"]
+%% I13: 다음 공급 칸이 비어 있는 주체: 기존 세입자 · 전세 임차인 / 질문: 다음 공급을 결정하는 자리에 누가 없는가?
+I13(["I13 · 다음 공급의 빈칸"])
+end
+
+subgraph TRANSFER["13 · 이익과 손실의 이전"]
+VAL["종전 권리가액<br/>둔촌 평형별 평균 4.48억~10.48억"]
+COSTSTEP["총사업비 · 비례율<br/>지출 − 일반분양 수입 = 조합원 부담분<br/>둔촌 비례율 자료 미확인"]
+SHAREFEE["조합원 분담금<br/>잠정 1.28억 → 추산 1.8억 (2022)"]
+CASHOUT["현금청산 · 매도청구<br/>미동의 소유자 · 인원 미수집"]
+GENSALE["일반분양 수입 (추산)<br/>4.67조 · 완판 가정 (2022.12)"]
+GUAR["책임준공 · 채무인수<br/>둔촌 조건 미수집"]
+JDLOSS["보증금 미반환<br/>전세사기 피해 결정 40,278건 (2026.7)<br/>전 주택 유형 · 아파트만이 아님"]
+LHSTEP["피해주택 매입 절차<br/>피해자 결정 → 매입 요청 → LH 매입 → 공공임대<br/>적용 범위: 특별법 대상 주택 (확인 필요)"]
+LHBUY["피해주택 LH 매입<br/>10,256가구 (2026.7)"]
+GRANT["부동산교부세<br/>종부세 전액 재원 · 3조3,790억 (2020)"]
+LOCALDEP["교부세 의존<br/>7개 기초단체: 교부세 > 지방세수 (2020)"]
+TENANTCOMP["재건축 세입자 보상<br/>주거이전비 법정 근거 없음 (2019 보도)"]
+NEWRES["신규 입주<br/>둔촌 일반분양 4,786 · 임대 1,046"]
+%% I10: 실패 비용의 귀속 [둔촌 사례]: 공사비 증액 1조1,385억이 총사업비를 거쳐 / 분담금 추산 1.28억 → 1.8억으로 이어졌다. 조합원 94.9% 찬성 / 질문: 멈춘 사업의 비용은 누구에게 가는가?
+I10(["I10 · 멈춘 비용의 귀속"])
+%% I11: 결정권이 없는 두 자리의 손실 기록. / 재건축 세입자: 주거이전비 법정 근거 없음 (2019 보도). / 전세 임차인: 피해 결정 40,278건 (전 주택 유형), 피해주택 LH 매입 10,256가구 (2026.7). / 두 기록은 제도와 시기가 다르고, 서로의 원인이 아니다 / 질문: 위험은 결정하지 않은 주체에게 어떻게 넘어가는가?
+I11(["I11 · 결정권 없는 두 자리"])
+%% I12: 세수 발생지와 집행지: 종부세 → 부동산교부세 3.38조 (2020), / 7개 기초단체는 교부세가 지방세수보다 많다 / 질문: 집값이 높은 곳의 세금이 어디를 먹여 살리는가?
+I12(["I12 · 세수 발생지와 집행지"])
+end
+
+subgraph C1["01 · 자본"]
+LV0["토지자산<br/>GDP의 4.7배 (2024)<br/>6개국 평균 2.4배"]
+A["가계 부동산 자산<br/>가계 자산 중 비금융 64.5%<br/>미국 32%"]
+SP["매매가격<br/>서울 아파트 2025 +8.98%"]
+WI["순자산 불평등<br/>지니 0.584 → 0.625<br/>상위 10% 46.1%"]
+INH["증여 · 상속<br/>20대 매수 신고 48.4% 기재<br/>서울 취득자금 4.19 → 6.45%"]
+SALE["기존 주택 처분대금<br/>60대+ 매입자금 51.9%"]
+%% I1: 매수 자금에서 증여·상속·처분대금 몫이 오르는 동안 / 중위소득으로 살 수 있는 서울 아파트는 32.5 → 3.0 / 질문: 주거 소유 기회는 시장에서 생기는가, 가족을 통해 넘어오는가?
+I1(["I1 · 가족 자금과 구입 가능성"])
+end
+
+subgraph C2["02 · 금융"]
+RC["부동산 신용<br/>1,932.5조 · 민간신용 49.7%"]
+RW["위험가중치<br/>주담대 < 기업대출"]
+HD["가계부채<br/>GDP 대비 99.1% → 88.6%"]
+LS["업종별 대출 비중<br/>제조업 34.5 → 24.6%<br/>부동산·건설 19.7 → 29.4%"]
+GC["신용의 성장 기여<br/>0.15 → 0.10%p"]
+JD["전세보증금<br/>수치 미수집"]
+PFL["사업비 대출<br/>둔촌 7,000억 → 9,000억"]
+BANKINT["은행 수익 구조<br/>이자이익 비중 89%<br/>미국 69% [보도 2026.4]"]
+%% I2: 민간신용 절반이 부동산, 제조업 대출 비중 하락, / 신용의 성장 기여 하락이 같은 10년에 겹친다 / 질문: 신용 공급의 이익과 부실 위험은 누구에게 귀속되는가?
+I2(["I2 · 신용과 성장 기여"])
+end
+
+subgraph C3["03 · 국가"]
+TX["부동산 관련 세수<br/>GDP 3.0% · OECD 1.6%<br/>총조세 11.7% · OECD 5.1%<br/>[S-TAX1 · OECD, 2024]"]
+TT["거래세 비중<br/>부동산 관련 세수의 50.4%<br/>[S-TAX1 · OECD, 2024]"]
+HT["보유세 비중<br/>부동산 관련 세수의 29.4%<br/>OECD 평균 약 56% [S-TAX1]"]
+PI["공공투자 · 기반시설<br/>수치 미수집"]
+HACQ["주택분 취득세<br/>9.4조 원 · 2024<br/>[S-TAX2 · NABO · 원문 미확인]"]
+HPROP["주택분 재산세<br/>6.0조 (2024) → 7.28조 (2026 전망)<br/>[S-TAX2 · NABO]"]
+HNP["주택분 종부세<br/>1.09조 (2024) → 1.50조 (2026 전망)<br/>[S-TAX3 · NABO]"]
+PTOT["전체 재산세<br/>15.1조 원 · 2024<br/>서울 5.3조 원 (35.0%)<br/>[S-TAX2 · 원문 미확인]"]
+ACQTOT["전체 취득세<br/>26.0조 원 · 2024<br/>지방세 수입의 23.0%<br/>[S-TAX4 · 원문 미확인]"]
+DEVLEVY["개발부담금<br/>2022년 징수 5,727억 원<br/>징수율 65.3%<br/>[S-TAX5 · 원문 미확인]"]
+TAXRELIEF["주택 관련 세제 감면<br/>생애최초 · 출산양육 · 미분양 · 인구감소지역<br/>[S-TAX6]"]
+TAXCAVEAT["통계 범위 주의<br/>주택분 ≠ 아파트분<br/>아파트만의 세수 합계는 별도 집계 필요"]
+REG["정비 규제<br/>재건축진단 시점 이동 2025.6<br/>조합설립 동의 75 → 70%"]
+DESIG["정비구역 지정 · 해제<br/>683곳 중 389곳 해제<br/>2012~2020"]
+%% I3: 부동산 세수의 절반이 거래세, / 보유세 비중은 OECD의 절반 / 질문: 거래가 많은 도시와 보유 자산이 많은 지역은 재정이 어떻게 다른가?
+I3(["I3 · 거래세 구조"])
+end
+
+subgraph C4["04 · 가구"]
+HOI["구입 가능 아파트 (서울)<br/>32.5 → 3.0 (2012 → 2022)"]
+HAI["원리금 부담 (서울)<br/>소득의 46.1% (2026 1Q)"]
+OWN["주택 소유율<br/>서울 48.1% · 전국 56.9%<br/>[원문 미확인]"]
+PAR["부모 자가<br/>자녀 자가 가능성 4.25배"]
+RENT["임대 가구 이동<br/>수치 미수집"]
+ORIG["원주민 재정착<br/>재개발 소유자 약 40%<br/>세입자 포함 약 10%"]
+%% I4: 부모 자가 → 자녀 자가 → 출산 시점이 / 한 연구 안에서 이어진다 / 질문: 집이 가족 형성의 조건이 되었는가?
+I4(["I4 · 부모 자가와 출산"])
+end
+
+subgraph C5["05 · 산업"]
+CI["건설투자<br/>GDP 14.2% · OECD 11.5%"]
+RD["정비사업 공급<br/>서울 신규 아파트 78~91%"]
+MEM["조합<br/>둔촌 6,151명 · 찬성 94.9%"]
+CC["공사비<br/>둔촌 2.6조 → 4.37조"]
+STOP["공사 중단<br/>둔촌 공정률 52% (2022.4)"]
+START["정비사업 착공<br/>서울 2.9만 → 1.5만 호/년"]
+AGE["노후 재고<br/>30년+ 서울 29~30%"]
+%% I5: 공사비 (둔촌 공정률 52%에서 중단) · 구역 해제 (683곳 중 389곳) · / 착공 감소 (2.9만 → 1.5만 호/년): 멈춘 기록이 세 단계에 따로 있다 / 질문: 정비사업은 어느 단계에서, 어떤 조건 때문에 멈추는가?
+I5(["I5 · 멈춘 단계"])
+end
+
+subgraph C6["06 · 도시 공간 — 서울과 전국"]
+U70["서울 1970<br/>단독 84.8% · 아파트 약 4%"]
+U96["서울 1996 역전<br/>아파트 34.4% > 단독 34.2%"]
+U11["서울 2011<br/>아파트 59.7% · 연립·다세대 24.8% · 단독 4.6%"]
+U3["전국 아파트 비중<br/>47.8% (2000) → 58.4% (2010)<br/>→ 62.9% (2020) → 65.8% (2025, 역대 최고)"]
+U4["매매 거래 중 아파트<br/>전국 58.2% → 78.5% · 서울 26.9% → 66.7%<br/>(2022 → 2025, 1~10월)"]
+TYPE["유형 간 가격차<br/>서울 아파트 = 연립 4.40배"]
+U6["30년 이상 노후 주택<br/>전체 주택의 30% 첫 돌파 (2025)"]
+U7["미거주 주택<br/>172만 호 · 8.5% (2025, 역대 최대)"]
+STD["표준 평면 · 코드<br/>수치 없음 · 근거: 서문"]
+%% I9: 서울은 1970년 단독 84.8%에서 2011년 아파트 59.7%로, / 전국 재고 65.8%와 매매 78.5%가 아파트. 같은 해 빈집 172만 호 / 질문: 한 유형으로 수렴한 도시에서 다른 주거는 어디에 남는가?
+I9(["I9 · 한 유형으로 수렴"])
+end
+
+subgraph C6B["06b · 사례 단지 — 둔촌 · 가락"]
+LAND["정비구역 토지<br/>둔촌 626,232.5㎡ · 24필지"]
+UNITS["세대 수<br/>둔촌 5,930 → 12,032"]
+FAR["용적률<br/>가락 89 → 285.98%<br/>세대는 1.44배"]
+end
+
+subgraph TAXFLOW["07 · 세수의 발생 경로와 부담 주체"]
+ACQ_PAYER["주택 취득자<br/>개인·법인"]
+HOLD_PAYER["주택 소유자<br/>개인·법인"]
+SELLER["주택 양도자<br/>개인·법인"]
+LANDLORD["임대사업자·임대인<br/>임대소득 발생"]
+INHERIT["상속인·수증자<br/>자산 이전"]
+DEVELOPER["개발사업자·조합<br/>개발이익·사업 시행"]
+LOCAL_TAX["지방세 수입<br/>취득세·재산세"]
+NATIONAL_TAX["국세 수입<br/>종부세·양도세·소득세 등"]
+LEVY["개발 관련 부담금<br/>개발부담금 등"]
+BUDGET["일반회계·특별회계·기금<br/>예산 편성·재정 배분"]
+TAXEXP["조세지출<br/>감면·공제·비과세"]
+end
+
+subgraph FEEDBACK["08 · 공공투자와 가치의 재형성"]
+INFRA["교통·도로·상하수도<br/>접근성·개발 수용력"]
+SOCIAL["학교·공원·공공시설<br/>둔촌 계획: 도로 18,860㎡ · 공원 31,456㎡ · 학교 16,125㎡"]
+PUBLIC_HOUSING["공공주택·주거지원<br/>둔촌 공공임대 1,046세대"]
+LANDVALUE["입지·토지가치 변화<br/>지역별 차등 발생"]
+DEMAND["주거·상업 수요 변화<br/>인구·고용·접근성"]
+NEXTDEV["다음 공급 · 후속 개발 유인<br/>정비·신규 공급 가능성"]
+end
+
+subgraph FAMILY["09 · 가족 · 결혼 · 출산"]
+NWHOME["신혼부부 거주<br/>아파트 거주 77.0% (2024)"]
+NWOWN["신혼부부 주택 소유<br/>42.7% · 1년차 35.8% → 5년차 50.9%"]
+NWKIDS["소유 여부별 자녀<br/>유자녀 56.6% vs 무주택 47.2%<br/>평균 0.67명 vs 0.56명"]
+NWLOAN["신혼부부 대출<br/>보유 86.9% · 중앙값 1.79억<br/>소유 부부 2.28억"]
+BIR["출산<br/>자녀 자가 시 첫째 위험비 1.72"]
+%% I6: 신혼부부 77%가 아파트에 살고, 86.9%가 빚이 있다. / 집을 가진 부부의 자녀 수가 더 많다 (교차 집계) / 질문: 아파트는 주거 선택지인가, 결혼·출산의 진입 조건인가?
+I6(["I6 · 신혼과 아파트"])
+end
+
+subgraph AGING["10 · 노후 · 복지"]
+OLDRE["고령 가구 자산 중 부동산<br/>80.1% · 40대 67.3%"]
+OLDPOV["노인 상대적 빈곤율<br/>66세+ 39.8% (2023) · OECD 최고"]
+HPEN["주택연금<br/>가입 규모 수치 미수집"]
+%% I7: 고령 가구 자산의 80.1%가 부동산인데, / 66세 이상 상대적 빈곤율은 OECD 최고 39.8% / 질문: 주택 소유가 노후의 경제적 안정을 실제로 보장하는가?
+I7(["I7 · 집 있는 노후 빈곤"])
+end
+
+subgraph COMMUNITY["11 · 공동체 · 관리"]
+MFEE["공동주택 관리비 총액<br/>24.9조 (2022) → 30.6조 (2024)<br/>공개 대상 확대 포함"]
+MHH["관리비 공개 대상<br/>약 1,066만 세대 (2022)"]
+GATE["게이트 · 단지 경계<br/>수치 없음 · 근거: 서문 사례 6"]
+COUNCIL["입주자대표회의<br/>수치 미수집"]
+%% I8: 관리비 30.6조 (2024) ≈ 주택분 보유세 7.6조 (2025)의 약 4배. / 단지에 내는 돈이 국가에 내는 보유세보다 크다 (연도 다름) / 질문: 아파트는 분양 뒤에도 어떤 관리경제를 계속 만드는가?
+I8(["I8 · 단지 안의 관리경제"])
+end
+
+subgraph SCHOOL["12 · 교육"]
+SCHPREM["학군지 가격<br/>대구 범어동 = 대구 평균 2.4배<br/>학군 효과 분리 안 됨 · 원문 미확인"]
+SCHOOLNET["학교 배정 · 학원가<br/>수치 미수집"]
+end
+
+LV0 --> A
+H --> SP
+SP -- "가격 상승분" --> A
+A -- "상위 계층 귀속" --> WI
+WI -.-> INH
+INH == "매수 자금" ==> H
+SP -.-> SALE
+SALE == "매수 자금" ==> H
+PAR --> OWN
+OWN --> BIR
+INH -.-> PAR
+H -- "담보" --> RC
+RW --> RC
+RC --> HD
+RC --> LS
+LS --> GC
+RC -.-> H
+HD -.-> HAI
+JD -.-> H
+BANKINT --> RW
+BANKINT -.-> RC
+H --> TT
+TT --> TX
+HT --> TX
+H --> HT
+H -- "과세" --> HACQ
+H -- "과세" --> HPROP
+H -- "과세" --> HNP
+HACQ --> ACQTOT
+HPROP --> PTOT
+ACQTOT --> TX
+PTOT --> TX
+HNP --> TX
+TAXRELIEF -. "세수 감면 / 취득·보유 유인" .-> H
+PTOT -. "지역별 재산세 세원 집중" .-> LOCAL_TAX
+TAXCAVEAT -.- HACQ
+TAXCAVEAT -.- HPROP
+TAXCAVEAT -.- HNP
+ACQ_PAYER == "납부" ==> HACQ
+HOLD_PAYER == "납부" ==> HPROP
+HOLD_PAYER == "납부" ==> HNP
+SELLER -. "양도차익 발생 시 과세" .-> NATIONAL_TAX
+LANDLORD -. "과세 대상 임대소득" .-> NATIONAL_TAX
+INHERIT -. "과세 대상 상속·증여" .-> NATIONAL_TAX
+DEVELOPER == "납부" ==> DEVLEVY
+DEVLEVY ==> LEVY
+HACQ ==> LOCAL_TAX
+HPROP ==> LOCAL_TAX
+HNP ==> NATIONAL_TAX
+LOCAL_TAX ==> BUDGET
+NATIONAL_TAX ==> BUDGET
+LEVY ==> BUDGET
+HNP == "전액 재원" ==> GRANT
+GRANT == "지자체 예산 편입" ==> BUDGET
+GRANT --> LOCALDEP
+BUDGET == "예산 배분" ==> PI
+TAXEXP -. "세수 감소 또는 납세 부담 경감" .-> BUDGET
+TAXEXP -. "취득·보유·개발 행태에 영향 가능" .-> H
+INH -. "같은 행위의 두 이름" .- INHERIT
+MEM -. "같은 주체" .- DEVELOPER
+SALE -. "같은 행위" .- SELLER
+REG -.-> DESIG
+DESIG -.-> START
+AGE -.-> RD
+RD --> H
+RD --> UNITS
+LAND --> UNITS
+FAR --> UNITS
+MEM --> RD
+MEM -- "도급 계약" --> CC
+CC --> STOP
+PFL == "사업비" ==> CC
+RC --> PFL
+RD --> CI
+START -.-> CI
+STOP -.-> H
+FAR -.-> SP
+GUAR -.-> CC
+PI -.-> LV0
+H --> HOI
+H --> HAI
+HOI -.-> OWN
+OWN -.-> RENT
+RENT -.-> JD
+RD --> ORIG
+H --> TYPE
+STD -.-> TYPE
+STD -.-> RD
+U70 --> U96
+U96 --> U11
+U11 --> U3
+RD -. "재건축은 아파트를 아파트로 바꾼다" .-> U3
+H --> U4
+U3 -.-> U4
+TYPE -.-> U4
+U3 -.-> AGE
+U6 -.-> U7
+U3 -.-> NWHOME
+UNITS -. "사례가 전체로 쌓인다" .-> U3
+PI --> INFRA
+PI --> SOCIAL
+PI --> PUBLIC_HOUSING
+RD -- "기부채납" --> SOCIAL
+RD --> PUBLIC_HOUSING
+INFRA -. "접근성 변화" .-> DEMAND
+SOCIAL -. "생활환경 변화" .-> DEMAND
+PUBLIC_HOUSING -. "주거 선택지·시장에 영향" .-> DEMAND
+DEMAND -. "지역 조건에 따라" .-> LANDVALUE
+LANDVALUE -. "개발 유인에 영향 가능" .-> NEXTDEV
+NEXTDEV -. "인허가·시장성 등 조건부" .-> DESIG
+H --> NWHOME
+NWHOME --> NWOWN
+NWOWN --> NWKIDS
+NWOWN --> NWLOAN
+NWLOAN -.-> HD
+NWKIDS -. "교차 집계, 인과 아님" .-> BIR
+TAXRELIEF -. "출산·양육 가구 취득세 감면" .-> NWOWN
+PAR -.-> NWOWN
+A --> OLDRE
+OLDRE -. "자산 유동화" .-> SALE
+OLDRE -. "다음 세대로" .-> INH
+OLDRE -. "집은 있고 현금은 없다 (가설)" .-> OLDPOV
+OLDRE -.-> HPEN
+UNITS --> MFEE
+MHH --> MFEE
+STD -.-> GATE
+GATE -.-> COUNCIL
+COUNCIL -.-> MEM
+SOCIAL -.-> SCHOOLNET
+SCHOOLNET -.-> SCHPREM
+SCHPREM -.-> SP
+NWKIDS -. "자녀가 생기면 학군" .-> SCHOOLNET
+MEM -- "권리 산정" --> VAL
+VAL -- "권리가액 차감" --> SHAREFEE
+RD -- "일반분양" --> GENSALE
+CC -- "[둔촌] 증액분 1조1,385억" --> COSTSTEP
+PFL -. "금융비용 증가분 · 자료 미확인" .-> COSTSTEP
+GENSALE == "사업비 충당" ==> COSTSTEP
+COSTSTEP -- "수입보다 지출이 늘면 분담금 증가" --> SHAREFEE
+MEM -. "미동의 소유자" .-> CASHOUT
+RD --> NEWRES
+TENANTCOMP -.-> ORIG
+MEM -- "관리처분 후 이주" --> TENANTCOMP
+JD -. "보증금 반환 위험" .-> JDLOSS
+JDLOSS -- "피해자 결정" --> LHSTEP
+LHSTEP -- "매입 요청분" --> LHBUY
+LHBUY -. "재원: LH · 기금 · 구성 확인 필요" .-> BUDGET
+AB == "분양대금" ==> GENSALE
+AR == "보증금" ==> JD
+JD == "보증금 수취" ==> AL
+AP == "증여 · 부모가 결정" ==> INH
+VAL -- "신축 입주권" --> AO
+SP -. "시세 상승분 · 미실현" .-> AO
+CC -- "공사비 수입" --> AC
+PFL -- "이자 · 위험은 자료 미확인" --> AF
+NEWRES -- "신축 거주" --> AB
+SP -. "시세차익 가능성 · 미실현" .-> AB
+H -- "거주" --> AR
+NATIONAL_TAX -- "세입" --> AG
+LOCAL_TAX -- "세입" --> AM
+GRANT -- "교부" --> AM
+GENSALE -. "개발이익 · 자료 미확인" .-> AD
+PAR -. "같은 주체" .- AP
+AL -. "같은 주체" .- HOLD_PAYER
+AD -. "같은 주체" .- DEVELOPER
+SHAREFEE -- "분담금 부담" --> AO
+CASHOUT -. "미동의 시 청산" .-> AO
+TENANTCOMP -- "이주 · 보상 공백" --> AT
+JDLOSS -- "미반환 손실" --> AR
+STOP -. "중단 기간 비용 · 자료 미확인" .-> AC
+PFL -. "PF 차환 · 미분양 위험" .-> AD
+LHBUY -- "매입 부담" --> AG
+AO -- "총회 의결" --o MEM
+AC -- "공사 중단" --o STOP
+AF -- "대출 실행 · 연장" --o PFL
+AG -- "법 · 기준" --o REG
+AM -- "구역 지정 · 해제" --o DESIG
+AL -- "임대 공급" --o JD
+AO -. "다음 재건축 발의 · 가설" .-o NEXTDEV
+AC -. "수주 · 가설" .-o NEXTDEV
+AF -. "대출 공급" .-o NEXTDEV
+AD -. "신규 사업 착수" .-o NEXTDEV
+AG -. "규제 · 세제" .-o NEXTDEV
+AB -. "다음 주기 조합원 · 가설" .-o NEXTDEV
+HOI -.-> I1
+INH -.-> I1
+SALE -.-> I1
+LS -.-> I2
+GC -.-> I2
+TT -.-> I3
+HT -.-> I3
+PAR -.-> I4
+BIR -.-> I4
+STOP -.-> I5
+DESIG -.-> I5
+START -.-> I5
+NWHOME -.-> I6
+NWLOAN -.-> I6
+NWKIDS -.-> I6
+OLDRE -.-> I7
+OLDPOV -.-> I7
+MFEE -.-> I8
+HPROP -.-> I8
+U11 -.-> I9
+U3 -.-> I9
+U4 -.-> I9
+U7 -.-> I9
+COSTSTEP -.-> I10
+SHAREFEE -.-> I10
+CC -.-> I10
+TENANTCOMP -.-> I11
+JDLOSS -.-> I11
+LHBUY -.-> I11
+GRANT -.-> I12
+LOCALDEP -.-> I12
+AT -.-> I13
+AR -.-> I13
+NEXTDEV -.-> I13
+
+classDef hub fill:#16181A,stroke:#16181A,color:#FFFFFF,stroke-width:2px,font-size:15px,font-weight:bold
+classDef iB fill:#FFFFFF,stroke:#2F6DB5,stroke-width:1.8px,color:#16181A
+classDef iP fill:#FFFFFF,stroke:#7B4FA6,stroke-width:1.8px,color:#16181A
+classDef iO fill:#FFFFFF,stroke:#A87A1E,stroke-width:1.8px,color:#16181A
+classDef iG fill:#FFFFFF,stroke:#3F8A46,stroke-width:1.8px,color:#16181A
+classDef iR fill:#FFFFFF,stroke:#C62828,stroke-width:1.8px,color:#16181A
+classDef iT fill:#FFFFFF,stroke:#1F8A85,stroke-width:1.8px,color:#16181A
+classDef iY fill:#FFFFFF,stroke:#8A9096,stroke-width:1.8px,color:#16181A
+classDef study stroke-dasharray:5 3
+classDef check fill:#F7F6F0,stroke-dasharray:5 3
+classDef nodata fill:#EEEFF0,stroke-dasharray:2 3,color:#5B6168
+classDef concept stroke-dasharray:2 3
+classDef actor stroke-width:3px,font-size:13px,color:#16181A
+classDef insight fill:#FCEAE8,stroke:#B3261E,stroke-width:1px,color:#8A1C16,font-size:11.5px,font-weight:bold
+classDef legend fill:none,stroke:none,color:#3A3F45,font-size:12px
+classDef legdot fill:#FFFFFF,stroke:#D5D9D6,stroke-width:1px
+class H hub
+class SALE,RC,RW,HD,LS,GC,JD,PFL,BANKINT,NWLOAN,HPEN,AF iB
+class LV0,A,SP,WI,INH,OWN,PAR,VAL,OLDRE,TYPE,U4,SCHPREM,LANDVALUE,NWOWN,ACQ_PAYER,HOLD_PAYER,SELLER,LANDLORD,INHERIT,AO,AL,AP iP
+class TX,TT,HT,PI,HACQ,HPROP,HNP,PTOT,ACQTOT,DEVLEVY,TAXRELIEF,REG,DESIG,LOCAL_TAX,NATIONAL_TAX,LEVY,BUDGET,TAXEXP,INFRA,GRANT,LOCALDEP,LHSTEP,AG,AM iO
+class CI,RD,MEM,CC,START,LAND,UNITS,FAR,DEVELOPER,GENSALE,NEXTDEV,MFEE,AC,AD iG
+class HAI,STOP,OLDPOV,SHAREFEE,CASHOUT,GUAR,JDLOSS,LHBUY,TENANTCOMP,COSTSTEP,AT iR
+class HOI,RENT,ORIG,AGE,U70,U96,U11,U3,U6,U7,SOCIAL,PUBLIC_HOUSING,DEMAND,NWHOME,NWKIDS,BIR,MHH,GATE,COUNCIL,SCHOOLNET,NEWRES,AB,AR iT
+class TAXCAVEAT,STD iY
+class GC,PAR,BIR,ORIG,GENSALE study
+class SCHPREM,OWN,HACQ,PTOT,ACQTOT,DEVLEVY check
+class JD,PI,RENT,STD,HPEN,GATE,COUNCIL,SCHOOLNET,CASHOUT,GUAR,COSTSTEP nodata
+class INFRA,LANDVALUE,DEMAND,NEXTDEV,TAXCAVEAT,LHSTEP concept
+class AO,AT,AC,AF,AD,AB,AR,AL,AG,AM,AP actor
+class I1,I2,I3,I4,I5,I6,I7,I8,I9,I10,I11,I12,I13 insight
+style AO fill:#F8F1E2
+style AT fill:#FBEAEA
+style AC fill:#FBEAEA
+style AF fill:#FBEAEA
+style AD fill:#FBEAEA
+style AB fill:#E6F4F3
+style AR fill:#FBEAEA
+style AL fill:#EAF1FA
+style AG fill:#FBEAEA
+style AM fill:#FBEAEA
+style AP fill:#EAF1FA
+style LHBUY fill:#F8F1E2
+style MEM fill:#F8F1E2
+style NWLOAN fill:#FBEAEA
+style GENSALE fill:#EAF1FA
+style SHAREFEE fill:#F2ECF8
+style JDLOSS fill:#EAF1FA
+style COSTSTEP fill:#EAF4EA
+style NEXTDEV stroke-width:3px,font-size:13px,font-weight:bold
+style C1 fill:#FDFAF6,stroke:#D5D9D6
+style C2 fill:#F8FAFD,stroke:#D5D9D6
+style C3 fill:#FBFAF5,stroke:#D5D9D6
+style C4 fill:#FDF8F8,stroke:#D5D9D6
+style C5 fill:#F8FBF7,stroke:#D5D9D6
+style C6 fill:#FCFBF6,stroke:#D5D9D6
+style C6B fill:#FDFDFA,stroke:#D5D9D6
+style TAXFLOW fill:#FDFCF7,stroke:#D5D9D6
+style FEEDBACK fill:#F7FBFB,stroke:#D5D9D6
+style FAMILY fill:#FDF8FA,stroke:#D5D9D6
+style AGING fill:#FAFAF8,stroke:#D5D9D6
+style COMMUNITY fill:#F7FBFA,stroke:#D5D9D6
+style SCHOOL fill:#F9F9FC,stroke:#D5D9D6
+style TRANSFER fill:#FFF9F8,stroke:#C62828,stroke-width:1.5px
+style ACTORS fill:#FFFFFF,stroke:#16181A,stroke-width:2.5px
+linkStyle 0,8,9,12,13,14,15,19,22,23,28,29,30,31,32,54,64,65,66,67,68,69,70,72,73,84,88,89,90,99,111,112,113,118,123,124,132,133,144,145 stroke:#5B6168,stroke-width:1.3px
+linkStyle 1,11,21,24,25,26,27,79,80,85,92,110 stroke:#C3C8CD,stroke-width:0.9px
+linkStyle 2,3,151 stroke:#7B4FA6,stroke-width:2px
+linkStyle 4,6,10,16,17,18,20,33,34,41,42,43,56,57,61,62,63,74,75,76,77,78,81,82,83,86,87,91,93,94,95,96,97,98,104,105,106,107,108,109,114,115,116,117,119,120,121,122,125,126,127,128,129,130,131,139,141 stroke:#8A9096,stroke-width:1.2px
+linkStyle 5,150 stroke:#7B4FA6,stroke-width:3.5px
+linkStyle 7,71,147,148,149 stroke:#2F6DB5,stroke-width:3.5px
+linkStyle 35,36,37,58,59,60,162,163,164 stroke:#8A9096,stroke-width:1px
+linkStyle 38,39,40,44,45,46,47,48,49,50,51,52,53,55 stroke:#A87A1E,stroke-width:3.5px
+linkStyle 100,101,102,103,140,155,157 stroke:#1F8A85,stroke-width:2px
+linkStyle 134,153 stroke:#3F8A46,stroke-width:2px
+linkStyle 135,138,142,165,167,168,171 stroke:#C62828,stroke-width:2.4px
+linkStyle 136,143,146,166,169,170 stroke:#C62828,stroke-width:1.8px
+linkStyle 137 stroke:#3F8A46,stroke-width:3.5px
+linkStyle 152,156 stroke:#7B4FA6,stroke-width:1.6px
+linkStyle 154 stroke:#2F6DB5,stroke-width:2px
+linkStyle 158,159,160 stroke:#A87A1E,stroke-width:2px
+linkStyle 161 stroke:#3F8A46,stroke-width:1.6px
+linkStyle 172,173,174,175,176,177 stroke:#3A3F45,stroke-width:2.2px
+linkStyle 178,179,180,181,182,183 stroke:#3A3F45,stroke-width:1.6px
+linkStyle 184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217 stroke:#B3261E,stroke-width:1px
