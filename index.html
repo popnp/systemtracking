@@ -5,14 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>[hidden]{display:none!important}</style>
 <title>아파트 시스템 지도</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* 레이아웃: 한 화면 = 상단 바 + 무한 캔버스(팬·줌) + 오른쪽 근거 패널 + 미니맵. 종이 도면의 톤: 흰 바탕, 검은 선, 이해관계 색만 유채색 */
 :root{
-  --bg:#F3F4F2; --paper:#FFFFFF; --fg:#16181A; --muted:#5B6168; --line:#D5D9D6; --line2:#E8EAE7; --panel:#FFFFFF; --chip:#EEF0ED; --focus:#1F4E8C;
+  --bg:#FFFFFF; --paper:#FFFFFF; --fg:#16181A; --muted:#5B6168; --line:#D5D9D6; --line2:#E8EAE7; --panel:#FFFFFF; --chip:#EEF0ED; --focus:#1F4E8C;
   --cB:#2F6DB5; --cP:#7B4FA6; --cO:#A87A1E; --cG:#3F8A46; --cR:#C62828; --cT:#1F8A85; --cY:#8A9096; --cK:#3A3F45; --cINS:#B3261E; --crel:#5B6168; --chyp:#9AA0A6; --chub:#C3C8CD;
   --tB:#EAF1FA; --tP:#F2ECF8; --tO:#F8F1E2; --tG:#EAF4EA; --tR:#FBEAEA; --tT:#E6F4F3; --tINS:#FCEAE8; --tNO:#EEEFF0; --tCHK:#F7F6F0;
-  --font:'IBM Plex Sans KR','Noto Sans KR','Apple SD Gothic Neo',sans-serif; --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --font:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard Variable',Pretendard,'Noto Sans KR','Noto Sans CJK KR','Malgun Gothic',system-ui,sans-serif; --mono:ui-monospace,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#111315; --paper:#1A1D20; --fg:#E8EAEC; --muted:#A3A9B0; --line:#363B40; --line2:#2A2E32; --panel:#1A1D20; --chip:#262A2E; --focus:#8DB4F0;
@@ -51,8 +50,10 @@ input[type=search]{font:inherit;color:inherit;background:var(--paper);border:1px
 #edges{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
 #edges path.e{fill:none;pointer-events:stroke;cursor:pointer;transition:opacity .15s}
 #edges path.hit{fill:none;stroke:transparent;stroke-width:14px;pointer-events:stroke;cursor:pointer}
-#edges text{font-family:var(--font);font-size:10.5px;fill:var(--muted);paint-order:stroke;stroke:var(--paper);stroke-width:3.5px;stroke-linejoin:round;pointer-events:none;opacity:0;transition:opacity .15s}
-#world.labels #edges text{opacity:1}
+#edges text{font-family:var(--font);font-size:10.5px;fill:var(--muted);paint-order:stroke;stroke:var(--paper);stroke-width:3.5px;stroke-linejoin:round;pointer-events:none;display:none}
+#world.labels:not(.moving) #edges text{display:block}
+#world.moving #edges path.hit{display:none}
+#world.moving .node,#world.moving #edges path.e{transition:none}
 #edges .dim{opacity:.07}
 #edges .sel{filter:drop-shadow(0 0 2px var(--fg))}
 .node{position:absolute;background:var(--paper);border:1.6px solid var(--cY);border-radius:4px;padding:7px 10px 8px;cursor:pointer;transition:opacity .15s,box-shadow .15s;user-select:none}
@@ -218,7 +219,8 @@ function drawEdges(){
 
 /* ---- 팬 · 줌 ---- */
 let S=1, TX=0, TY=0;
-function apply(){ world.style.transform=`translate(${TX}px,${TY}px) scale(${S})`; world.classList.toggle('labels', S>=0.75); $('#wz').textContent=Math.round(S*100)+'%'; updateMini(); updateWhere(); }
+let mvT=0;
+function apply(){ world.classList.add('moving'); clearTimeout(mvT); mvT=setTimeout(()=>world.classList.remove('moving'),140); world.style.transform=`translate(${TX}px,${TY}px) scale(${S})`; world.classList.toggle('labels', S>=0.75); $('#wz').textContent=Math.round(S*100)+'%'; updateMini(); updateWhere(); }
 function zoomAt(f, cx, cy){ const ns=Math.min(3, Math.max(0.1, S*f)); const k=ns/S; TX=cx-(cx-TX)*k; TY=cy-(cy-TY)*k; S=ns; apply(); }
 function fit(){ const r=vp.getBoundingClientRect(); S=Math.min(r.width/D.W, r.height/D.H)*0.94; TX=(r.width-D.W*S)/2; TY=(r.height-D.H*S)/2; apply(); }
 function centerOn(x,y,w,h,zoom){ const r=vp.getBoundingClientRect(); if(zoom) S=zoom; TX=r.width/2-(x+w/2)*S; TY=r.height/2-(y+h/2)*S; apply(); }
@@ -334,6 +336,7 @@ document.addEventListener('click', e=>{ if(!e.target.closest('#srch,#q')) srch.h
 requestAnimationFrame(()=>{ measure(); drawEdges(); buildMini(); fit(); refresh();
   const h=location.hash.replace('#',''); if(h && N[h]) select('n',h);
 });
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>{ measure(); drawEdges(); buildMini(); refresh(); });
 window.addEventListener('hashchange', ()=>{ const h=location.hash.replace('#',''); if(h&&N[h]) select('n',h); });
 window.addEventListener('resize', ()=>{ updateMini(); updateWhere(); });
 }
